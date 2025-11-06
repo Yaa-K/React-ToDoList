@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     tools {
-        nodejs "NodeJs"
+        nodejs "Nodejs"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git branch: 'peter-branch',
-                    url: 'https://github.com/bigcephas1/React-ToDoList.git'
+                git branch: 'main',
+                    url: 'https://github.com/Yaa-K/React-ToDoList.git'
             }
         }
 
@@ -51,14 +51,14 @@ pipeline {
             emailext(
                 subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                 body: "The build ${env.BUILD_URL} completed successfully.",
-                to: "ukpabipeteru@gmail.com"
+                to: "yaay2440@gmail.com"
             )
         }
         failure {
             emailext(
                 subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                 body: "The build ${env.BUILD_URL} failed. Please check the logs.",
-                to: "ukpabipeteru@gmail.com"
+                to: "yaay2440@gmail.com"
             )
         }
     }
